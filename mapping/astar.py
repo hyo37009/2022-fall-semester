@@ -3,6 +3,8 @@ import heapq
 import plotting
 import env
 from PIL import Image
+import numpy as np
+import pandas as pd
 
 
 class AStar:
@@ -156,6 +158,9 @@ def main():
 
 
     path, visited = astar.searching()
+    f = open('path.txt', 'w')
+    f.write(str(path))
+    f.close()
     plot.animation(path, visited, "A*")  # animation
 
     # path, visited = astar.searching_repeated_astar(2.5)               # initial weight e = 2.5
