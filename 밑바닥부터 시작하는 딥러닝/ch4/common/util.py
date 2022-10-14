@@ -24,7 +24,7 @@ def shuffle_dataset(x, t):
     
     Returns
     -------
-    x, t : 뒤섞은 훈련 데이터와 정답 레이블
+    originalmap, t : 뒤섞은 훈련 데이터와 정답 레이블
     """
     permutation = np.random.permutation(x.shape[0])
     x = x[permutation,:] if x.ndim == 2 else x[permutation,:,:,:]

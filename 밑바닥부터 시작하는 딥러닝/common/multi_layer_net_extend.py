@@ -118,7 +118,7 @@ class MultiLayerNetExtend:
         
         Parameters
         ----------
-        x : 입력 데이터
+        originalmap : 입력 데이터
         t : 정답 레이블
         
         Returns

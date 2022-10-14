@@ -149,8 +149,8 @@ class AStar:
 
 
 def main():
-    s_start = (75, 200)
-    s_goal = (100, 75)
+    s_start = (112, 42)
+    s_goal = (112,43)
 
     astar = AStar(s_start, s_goal, "euclidean")
     plot = plotting.Plotting(s_start, s_goal)

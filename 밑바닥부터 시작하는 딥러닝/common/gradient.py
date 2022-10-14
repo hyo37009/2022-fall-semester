@@ -8,10 +8,10 @@ def _numerical_gradient_1d(f, x):
     for idx in range(x.size):
         tmp_val = x[idx]
         x[idx] = float(tmp_val) + h
-        fxh1 = f(x) # f(x+h)
+        fxh1 = f(x) # f(originalmap+h)
         
         x[idx] = tmp_val - h 
-        fxh2 = f(x) # f(x-h)
+        fxh2 = f(x) # f(originalmap-h)
         grad[idx] = (fxh1 - fxh2) / (2*h)
         
         x[idx] = tmp_val # 값 복원
@@ -40,10 +40,10 @@ def numerical_gradient(f, x):
         idx = it.multi_index
         tmp_val = x[idx]
         x[idx] = float(tmp_val) + h
-        fxh1 = f(x) # f(x+h)
+        fxh1 = f(x) # f(originalmap+h)
         
         x[idx] = tmp_val - h 
-        fxh2 = f(x) # f(x-h)
+        fxh2 = f(x) # f(originalmap-h)
         grad[idx] = (fxh1 - fxh2) / (2*h)
         
         x[idx] = tmp_val # 값 복원

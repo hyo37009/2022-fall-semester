@@ -2,7 +2,7 @@
 try:
     import urllib.request
 except ImportError:
-    raise ImportError('You should use Python 3.x')
+    raise ImportError('You should use Python 3.originalmap')
 import os.path
 import gzip
 import pickle

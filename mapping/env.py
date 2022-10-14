@@ -1,19 +1,13 @@
-from PIL import Image
 import numpy as np
 
 class Env:
-    img = Image.open('testmap1.jpg')
-    x = np.array(img)
-    x[x < 150] = 0
-    x[x > 150] = 1
 
     def __init__(self):
-        img = Image.open('testmap1.jpg')
-        x = np.array(img)
-        x[x < 150] = 0
-        x[x > 150] = 1
+
+        x = np.load('newmap.npy')
         self.x_range = x.shape[0]
         self.y_range = x.shape[1]
+        # 로봇이 이동할 수 있는 방향(픽셀단위)
         self.motions = [(-1, 0), (-1, 1), (0, 1), (1, 1),
                         (1, 0), (1, -1), (0, -1), (-1, -1)]
         self.obs = self.obs_map()
@@ -21,6 +15,7 @@ class Env:
     def update_obs(self, obs):
         self.obs = obs
 
+    #아래는 샘플 맵이라 주석처리
     # def obs_map(self):
     #     """
     #     Initialize obstacles' positions
@@ -28,19 +23,19 @@ class Env:
     #     :return: map of obstacles
     #     """
     #
-    #     x = self.x_range
+    #     originalmap = self.x_range
     #     y = self.y_range
     #     obs = set()
     #
-    #     for i in range(x):
+    #     for i in range(originalmap):
     #         obs.add((i, 0))
-    #     for i in range(x):
+    #     for i in range(originalmap):
     #         obs.add((i, y - 1))
     #
     #     for i in range(y):
     #         obs.add((0, i))
     #     for i in range(y):
-    #         obs.add((x - 1, i))
+    #         obs.add((originalmap - 1, i))
     #
     #     for i in range(10, 21):
     #         obs.add((i, 15))
@@ -55,10 +50,7 @@ class Env:
     #     return obs
 
     def obs_map(self):
-        img = Image.open('testmap1.jpg')
-        arr = np.array(img)
-        arr[arr < 150] = 0
-        arr[arr > 150] = 1
+        arr = np.load('newmap.npy')
 
 
         #반드시 처리가 완료된 이미지를 넣을 것. 1:장애물 0:이동가능
